@@ -5,6 +5,7 @@ const socketIo = require("socket.io");
 const { addUser, removeUser, getUsersInRoom } = require("./users");
 const { addMessage, getMessagesInRoom } = require("./messages");
 const path = require("path");
+const dotenv = require("dotenv").config();
 
 const app = express();
 app.use(cors());
