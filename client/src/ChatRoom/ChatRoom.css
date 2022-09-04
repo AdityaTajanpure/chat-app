@@ -38,7 +38,7 @@
   flex: 1;
   min-height: 100px;
   max-height: 60vh;
-  overflow: auto;
+  overflow: scroll;
   border-radius: 7px 7px 0 0;
   margin-bottom: 8px;
 }
