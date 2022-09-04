@@ -17,7 +17,7 @@ const io = socketIo(server, {
   },
 });
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const USER_JOIN_CHAT_EVENT = "USER_JOIN_CHAT_EVENT";
 const USER_LEAVE_CHAT_EVENT = "USER_LEAVE_CHAT_EVENT";
 const NEW_CHAT_MESSAGE_EVENT = "NEW_CHAT_MESSAGE_EVENT";
