@@ -4,6 +4,7 @@ const cors = require("cors");
 const socketIo = require("socket.io");
 const { addUser, removeUser, getUsersInRoom } = require("./users");
 const { addMessage, getMessagesInRoom } = require("./messages");
+const path = require("path");
 
 const app = express();
 app.use(cors());
