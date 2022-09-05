@@ -30,3 +30,8 @@ pre {
 .err-msg {
   color: red;
 }
+
+.loginBg {
+  max-width: 100%;
+  background: url("https://firebasestorage.googleapis.com/v0/b/chattie-45cf4.appspot.com/o/background.png?alt=media&token=feec4980-1ec9-4859-bf60-b6f8cad02c92");
+}

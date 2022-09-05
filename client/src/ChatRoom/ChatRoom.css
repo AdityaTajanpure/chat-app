@@ -12,13 +12,12 @@
 }
 
 .chat-room-container {
-  position: fixed;
   min-height: 90%;
   left: 0;
   right: 0;
   display: flex;
   flex-direction: column;
-  margin: 16px;
+  margin-top: 20px;
 }
 
 .chat-room-top-bar {
@@ -26,21 +25,21 @@
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
-  max-width: 15%;
-}
-
-.chat-room-top-bar h1 {
-  flex: 1;
 }
 
 .messages-container {
   margin-top: 20px;
+  min-height: 55vh;
+  max-height: 55vh;
   flex: 1;
-  min-height: 100px;
-  max-height: 60vh;
   overflow: scroll;
   border-radius: 7px 7px 0 0;
-  margin-bottom: 8px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.messages-container::-webkit-scrollbar {
+  display: none;
 }
 
 .messages-list {
@@ -49,5 +48,7 @@
 }
 
 .sticky-bottom {
-  height: 142px;
+  height: 180px;
+  position: sticky;
+  bottom: 20;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { useRef } from "react";
 import "./ChatRoom.css";
 import useChat from "../useChat";
 import ChatMessage from "../ChatMessage/ChatMessage";
@@ -11,6 +11,7 @@ import UserAvatar from "../UserAvatar/UserAvatar";
 
 const ChatRoom = (props) => {
   const { roomId } = props.match.params;
+  const messagesRef = useRef();
   const {
     messages,
     user,
@@ -54,7 +55,7 @@ const ChatRoom = (props) => {
           )}
         </div>
         <Users users={users}></Users>
-        <div className="messages-container">
+        <div className="messages-container" ref={messagesRef}>
           <ol className="messages-list">
             {messages.map((message, i) => (
               <li key={i}>
@@ -74,7 +75,12 @@ const ChatRoom = (props) => {
           handleNewMessageChange={handleNewMessageChange}
           handleStartTyping={startTyping}
           handleStopTyping={stopTyping}
-          handleSendMessage={handleSendMessage}
+          handleSendMessage={(e) => {
+            handleSendMessage(e);
+            setTimeout(() => {
+              messagesRef.current.scroll(0, messagesRef.current.scrollHeight);
+            }, 500);
+          }}
         ></NewMessageForm>
       </div>
     </>

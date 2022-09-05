@@ -1,14 +1,21 @@
 .user-list {
+  min-height: 5vh;
+  max-height: 5vh;
   display: flex;
   flex-wrap: wrap;
   margin: 8px;
   padding: 0;
 }
 
+.title {
+  margin-top: 10px;
+}
+
 .user-box {
   list-style-type: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  gap: 20px;
   align-items: center;
   margin: 8px;
 }

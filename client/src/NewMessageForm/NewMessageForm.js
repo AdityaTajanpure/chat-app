@@ -9,9 +9,23 @@ const NewMessageForm = ({
   handleSendMessage,
 }) => {
   return (
-    <form className="ui form">
+    <form className="ui form" autoComplete="false">
       <div className="field">
         <label>Add Message :</label>
+
+        <input
+          type="password"
+          id="disable-pwd-mgr-1"
+          style={{ display: "none" }}
+          value="stop-pwd-mgr-1"
+        />
+        <input
+          type="password"
+          id="disable-pwd-mgr-2"
+          style={{ display: "none" }}
+          value="stop-pwd-mgr-2"
+        />
+
         <input
           type="text"
           value={newMessage}

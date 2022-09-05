@@ -45,36 +45,38 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <h1>Join a Chat Room</h1>
-        <div className="ui divider"></div>
-        <div className="ui form">
-          <div className="field">
-            <label>Email :</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formValues.email}
-              onChange={handleChange}
-            />
+    <div className="loginBg">
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          <h1>Join a Chat Room</h1>
+          <div className="ui divider"></div>
+          <div className="ui form">
+            <div className="field">
+              <label>Email :</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Use any email"
+                value={formValues.email}
+                onChange={handleChange}
+              />
+            </div>
+            <p className="err-msg">{formErrors.email}</p>
+            <div className="field">
+              <label>Room :</label>
+              <input
+                type="text"
+                name="room"
+                placeholder="Room Id"
+                value={formValues.room}
+                onChange={handleChange}
+              />
+            </div>
+            <p className="err-msg">{formErrors.room}</p>
+            <button className="fluid ui button blue btn-primary">Submit</button>
           </div>
-          <p className="err-msg">{formErrors.email}</p>
-          <div className="field">
-            <label>Room :</label>
-            <input
-              type="text"
-              name="room"
-              placeholder="Room Id"
-              value={formValues.room}
-              onChange={handleChange}
-            />
-          </div>
-          <p className="err-msg">{formErrors.room}</p>
-          <button className="fluid ui button blue btn-primary">Submit</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };
