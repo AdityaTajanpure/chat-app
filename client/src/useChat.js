@@ -20,7 +20,7 @@ const useChat = (roomId) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      let email = localStorage.getItem("user");
+      let email = sessionStorage.getItem("user");
       let name;
       if (email) {
         name = email.split("@")[0];
@@ -28,6 +28,10 @@ const useChat = (roomId) => {
         name = haikunator.haikunate();
         email = name + "@gmail.com";
       }
+      console.log({
+        email,
+        name,
+      });
       setUser({
         email,
         name,
@@ -43,6 +47,7 @@ const useChat = (roomId) => {
         `${SOCKET_SERVER_URL}/rooms/${roomId}/users`
       );
       const result = response.data.users;
+      console.log(result);
       setUsers(result);
     };
 

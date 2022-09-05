@@ -4,7 +4,7 @@
   color: white;
 }
 
-.app-header > div {
+.app-header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,8 +29,8 @@
 
 .messages-container {
   margin-top: 20px;
-  min-height: 55vh;
-  max-height: 55vh;
+  min-height: 46vh;
+  max-height: 46vh;
   flex: 1;
   overflow: scroll;
   border-radius: 7px 7px 0 0;
@@ -48,7 +48,16 @@
 }
 
 .sticky-bottom {
+  left: 10;
+  right: 10;
   height: 180px;
   position: sticky;
   bottom: 20;
+}
+
+@media (min-width: 850px) {
+  .messages-container {
+    min-height: 50vh;
+    max-height: 50vh;
+  }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 import "./ChatRoom.css";
 import useChat from "../useChat";
 import ChatMessage from "../ChatMessage/ChatMessage";
@@ -10,6 +11,7 @@ import Users from "../Users/Users";
 import UserAvatar from "../UserAvatar/UserAvatar";
 
 const ChatRoom = (props) => {
+  const history = useHistory();
   const { roomId } = props.match.params;
   const messagesRef = useRef();
   const {
@@ -36,6 +38,20 @@ const ChatRoom = (props) => {
     setNewMessage("");
   };
 
+  // useEffect(() => {
+  //   console.log(messages.at(-1));
+  //   if (messages.at(-1).senderId !== localStorage.getItem("userId")) {
+  //     var audio = new Audio(
+  //       "https://firebasestorage.googleapis.com/v0/b/chattie-45cf4.appspot.com/o/iphone_ding.mp3?alt=media&token=6d86a527-de7d-4210-a710-4d66206b9b43"
+  //     );
+  //     setTimeout(() => {
+  //       console.log(messages);
+  //       audio.play();
+  //       messagesRef.current.scroll(0, messagesRef.current.scrollHeight);
+  //     }, 500);
+  //   }
+  // }, [messages]);
+
   useEffect(() => {
     if (isTyping) startTypingMessage();
     else stopTypingMessage();
@@ -43,17 +59,40 @@ const ChatRoom = (props) => {
 
   return (
     <>
-      <header className="app-header">React Chat</header>
+      <header className="app-header">
+        <h3>React Chat</h3>
+        <div>
+          <div className="app-header">
+            <button
+              className="fluid ui button blue btn-primary"
+              onClick={async () => {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Chat room url copied to your clipboard");
+              }}
+            >
+              Invite
+            </button>
+            {sessionStorage.getItem("isAuthenticated") && user ? (
+              <>
+                <UserAvatar user={user}></UserAvatar>
+                {"    " + user.name}
+              </>
+            ) : (
+              <button
+                className="fluid ui button blue btn-primary"
+                onClick={() => {
+                  history.replace("/");
+                }}
+              >
+                Login
+              </button>
+            )}
+          </div>
+        </div>
+      </header>
 
       <div className="chat-room-container">
-        <div className="chat-room-top-bar">
-          {user && (
-            <>
-              <UserAvatar user={user}></UserAvatar>
-              {"    " + user.name}
-            </>
-          )}
-        </div>
+        <div className="chat-room-top-bar"></div>
         <Users users={users}></Users>
         <div className="messages-container" ref={messagesRef}>
           <ol className="messages-list">

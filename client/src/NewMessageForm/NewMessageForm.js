@@ -17,13 +17,13 @@ const NewMessageForm = ({
           type="password"
           id="disable-pwd-mgr-1"
           style={{ display: "none" }}
-          value="stop-pwd-mgr-1"
+          defaultValue="stop-pwd-mgr-1"
         />
         <input
           type="password"
           id="disable-pwd-mgr-2"
           style={{ display: "none" }}
-          value="stop-pwd-mgr-2"
+          defaultValue="stop-pwd-mgr-2"
         />
 
         <input

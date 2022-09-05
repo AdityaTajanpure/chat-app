@@ -13,7 +13,8 @@ const Login = () => {
   const history = useHistory();
 
   const joinRoom = async () => {
-    localStorage.setItem("user", formValues.email);
+    sessionStorage.setItem("isAuthenticated", true);
+    sessionStorage.setItem("user", formValues.email);
     history.push(`/${formValues.room}`);
   };
 

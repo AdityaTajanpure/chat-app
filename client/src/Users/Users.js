@@ -4,20 +4,21 @@ import UserAvatar from "../UserAvatar/UserAvatar";
 import "./Users.css";
 
 const Users = ({ users }) => {
-  return users.length > 0 ? (
+  return (
     <div>
-      <h2 className="title">Also in this room:</h2>
+      <h3 className="title">
+        {users.length > 0 ? "" : "There is no one else in this room:"}
+      </h3>
       <ul className="user-list">
-        {users.map((user, index) => (
-          <li key={index} className="user-box">
-            <span>{user.name}</span>
-            <UserAvatar user={user}></UserAvatar>
-          </li>
-        ))}
+        {users.length > 0 &&
+          users.map((user, index) => (
+            <li key={index} className="user-box">
+              <span>{user.name}</span>
+              <UserAvatar user={user}></UserAvatar>
+            </li>
+          ))}
       </ul>
     </div>
-  ) : (
-    <div>There is no one else in this room</div>
   );
 };
 

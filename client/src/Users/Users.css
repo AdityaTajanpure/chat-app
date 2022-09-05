@@ -1,10 +1,16 @@
 .user-list {
-  min-height: 5vh;
-  max-height: 5vh;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  margin: 8px;
-  padding: 0;
+  overflow: scroll;
+  -ms-overflow-style: none; /* Edge | IE*/
+  scrollbar-width: none; /* Firefox */
+  /* flex-wrap: wrap; */
+  /* margin: 8px; */
+  /* padding: 0; */
+}
+
+.user-list::-webkit-scrollbar {
+  display: none;
 }
 
 .title {
@@ -15,7 +21,9 @@
   list-style-type: none;
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
   gap: 20px;
   align-items: center;
+  text-align: center;
   margin: 8px;
 }
